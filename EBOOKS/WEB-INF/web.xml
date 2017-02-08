@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <!-- To save as <CATALINA_HOME>\webapps\helloservlet\WEB-INF\web.xml -->
+   <context-param>
+    <param-name>databaseURL</param-name>
+    <param-value>jdbc:mysql://localhost/cs4010</param-value>
+  </context-param>
+  <context-param>
+    <param-name>username</param-name>
+    <param-value>cs4010</param-value>
+  </context-param>
+  <context-param>
+    <param-name>password</param-name>
+    <param-value>cs4010</param-value>
+  </context-param>
+
+	<servlet>
+		<servlet-name>QueryServlet</servlet-name>
+		<servlet-class>QueryServlet </servlet-class>	
+	</servlet>
+	<servlet>
+		<servlet-name>DisplayAuthors</servlet-name>        
+		<servlet-class>DisplayAuthors</servlet-class>
+	</servlet>
+    <servlet>
+        <servlet-name>FileServlet</servlet-name>
+        <servlet-class>FileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>DisplayAuthors</servlet-name>
+       	<url-pattern>/author</url-pattern>
+	</servlet-mapping>
+  	<servlet-mapping>
+    	<servlet-name>QueryServlet</servlet-name>
+    	<url-pattern>/query</url-pattern>
+	</servlet-mapping>
+    <servlet-mapping>
+       	<servlet-name>FileServlet</servlet-name>
+        <url-pattern>/file</url-pattern>
+    </servlet-mapping>
+    	
+	<session-config>
+        	<session-timeout>
+        	    30
+        	</session-timeout>
+    	</session-config>
+
+</web-app>
+
